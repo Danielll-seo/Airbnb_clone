@@ -349,6 +349,7 @@ Daniel = player("daniel", 100, 0)
 Daniel.sayHello()"""
 
 """ #5. OOP = 2.inheritance(상속) """
+
 """class fan:
     def __init__(self, name, fav_Team):
         self.name = name
@@ -373,13 +374,16 @@ class Human:
         print(f"Hello! my name is {self.name}")
 
 class Player(Human):
-    def __init__(self, xp):
+    def __init__(self, name, xp):
+        super().__init__(name) # 이 코드는 해당 클래스에서 Human클래스를 호출한다.
         self.xp = xp
 
 class Fan(Human):
-    def __init__(self, fav_Team):
+    def __init__(self, name, fav_Team):
+        super().__init__(name)
         self.fav_Team = fav_Team
 
-Daniel_player = Player(0)
-Daniel_player.sayHello("Daniel")
-Daniel_fan = Fan("Tottenham hotspur")
+Daniel_player = Player("Daniel", 0)
+Daniel_player.sayHello()
+Daniel_Fan = Fan("Daniel", "Tottenham hotspur")
+Daniel_Fan.sayHello()
