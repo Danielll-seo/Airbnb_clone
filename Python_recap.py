@@ -337,3 +337,49 @@ def introduce_player(player):
 introduce_player(daniel)'''
 
 # OOP의 예시
+"""class player:
+    def __init__(self, name, hp, xp):
+        self.name = name
+        self.hp = hp
+        self.xp = xp
+    def sayHello(self):
+        print(f"Hello! my name is {self.name}")
+
+Daniel = player("daniel", 100, 0)
+Daniel.sayHello()"""
+
+""" #5. OOP = 2.inheritance(상속) """
+"""class fan:
+    def __init__(self, name, fav_Team):
+        self.name = name
+        self.fav_Team = fav_Team
+    def sayHello(self):
+        print(f"Hello! my name is {self.name}")
+"""
+
+'''
+위의 두 코드에서는 name이라는 변수와 sayHello라는 함수가 중첩된다. 이 중첩되는 코드들을 Human이라는
+클래스로 따로 빼서 만들어보자.
+'''
+
+from typing import Any
+
+
+class Human:
+    def __init__(self, name):
+        self.name = name
+
+    def sayHello(self):
+        print(f"Hello! my name is {self.name}")
+
+class Player(Human):
+    def __init__(self, xp):
+        self.xp = xp
+
+class Fan(Human):
+    def __init__(self, fav_Team):
+        self.fav_Team = fav_Team
+
+Daniel_player = Player(0)
+Daniel_player.sayHello("Daniel")
+Daniel_fan = Fan("Tottenham hotspur")
