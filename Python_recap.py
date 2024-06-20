@@ -393,3 +393,5 @@ Daniel_Fan.sayHello()
 class Dog:
     def __init__(self, name) -> None:
         self.name = name
+
+jia = Dog("jia")
