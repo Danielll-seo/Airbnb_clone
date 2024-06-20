@@ -385,5 +385,11 @@ class Fan(Human):
 
 Daniel_player = Player("Daniel", 0)
 Daniel_player.sayHello()
-Daniel_Fan = Fan("Daniel", "Tottenham hotspur")
+Daniel_Fan = Fan("Daniel", "Tottenham hotspur") 
 Daniel_Fan.sayHello()
+
+""" #5. OOP = 5. dir """
+
+class Dog:
+    def __init__(self, name) -> None:
+        self.name = name
