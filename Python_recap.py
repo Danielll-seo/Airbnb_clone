@@ -363,11 +363,11 @@ Daniel.sayHello()"""
 클래스로 따로 빼서 만들어보자.
 '''
 
-from typing import Any
-
-
+'''
+# Super class
 class Human:
     def __init__(self, name):
+        #instance(요소들)
         self.name = name
 
     def sayHello(self):
@@ -387,11 +387,32 @@ Daniel_player = Player("Daniel", 0)
 Daniel_player.sayHello()
 Daniel_Fan = Fan("Daniel", "Tottenham hotspur") 
 Daniel_Fan.sayHello()
+'''
 
 """ #5. OOP = 5. dir """
 
+from typing import Any
+
+
 class Dog:
-    def __init__(self, name) -> None:
+    def __init__(self, name):
         self.name = name
+    def __str__(self):
+        print(super().__str__())
+        return f"Dog: {self.name}"
+    
+    '''이 함수는 인스턴스의 속성을 불러오는 함수로
+    함수 안에, 즉 name안에 뭐가 담겨있든 
+    '''
+    def __getattribute__(self, name):
+        print(f"they want to get {name}")
+        return "🤣"
 
 jia = Dog("jia")
+# print(jia)
+paul = Dog("paul")
+# print(paul)
+# print(dir(jia))
+print(jia.name)
+
+# dir이란 해당코드가 가지는 속성들과 쓸 수 있는 메서드를 출력해준다.
