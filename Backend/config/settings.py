@@ -30,16 +30,17 @@ ALLOWED_HOSTS = []
 
 # Application definition
 CUSTOM_APPS = [
-    'houses.apps.HousesConfig',
+    "houses.apps.HousesConfig",
+    "users.apps.UsersConfig",
 ]
 
 SYSTEM_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
 ]
 
 INSTALLED_APPS = CUSTOM_APPS + SYSTEM_APPS
@@ -128,3 +129,4 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Auth
+AUTH_USER_MODEL = "users.User"
