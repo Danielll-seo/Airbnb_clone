@@ -5,4 +5,11 @@ from .models import User
 # Register your models here.
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
-    pass
+    fieldsets = (
+        (
+            "Profile",
+            {
+                "fields" : ("username", "password", "name", "email", "is_host"),
+            },
+        ),
+    )
