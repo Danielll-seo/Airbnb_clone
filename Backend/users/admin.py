@@ -23,4 +23,10 @@ class CustomUserAdmin(UserAdmin):
                 ),
             },
         ),
+        (
+            "Important Dates",
+            {
+                "fields": ("last_login", "date_joined"),
+            },
+        ),
     )
