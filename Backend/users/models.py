@@ -3,9 +3,13 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class User(AbstractUser):
-    class Genderchoice(models.TextChoices):
+    class GenderChoices(models.TextChoices):
         MALE = ("male", "Male")
         FEMALE = ("female", "Female")
+
+    class LanguageChoice(models.TextChoices):
+        KR = ("kr", "Korean")
+        EN = ("en", "English")
 
     first_name = models.CharField(
         max_length=150,
@@ -30,9 +34,8 @@ class User(AbstractUser):
 
     gender = models.CharField(
         max_length=100,
-        choices=Genderchoice,
+        choices=GenderChoices,
     )
 
     language = models.CharField(
-        max_length=2,
-    )
+        max_length=2)
