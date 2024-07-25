@@ -39,3 +39,4 @@ class User(AbstractUser):
 
     language = models.CharField(
         max_length=2)
+    
