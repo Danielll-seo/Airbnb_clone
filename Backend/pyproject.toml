@@ -1,16 +1,14 @@
 [project]
-name = "codespaces-django"
+name = "backend"
 version = "0.1.0"
-description = "Airbnb clone"
+description = "airbnb_backend"
 authors = [
     {name = "Daniellll",email = "shj1103s@naver.com"}
 ]
 license = "MIT"
-readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "django (>=6.0.5,<7.0.0)",
-    "beautifulsoup4 (>=4.14.3,<5.0.0)"
+    "django (>=6.0.6,<7.0.0)"
 ]
 
 
