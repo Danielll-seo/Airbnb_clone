@@ -25,7 +25,13 @@ SECRET_KEY = "django-insecure-$2=h@y_$8m(94+9*2bm2ehb!29@t*7!534$e^wsdx$5!v)%@b3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://localhost:8000",
+    "https://127.0.0.1:8000",
+    "https://scaling-guacamole-rwpp77gpqwj2xgr-8000.app.github.dev/",
+    "https://scaling-guacamole-rwpp77gpqwj2xgr-8000.app.github.dev/admin/",
+]
 
 
 # Application definition
