@@ -17,7 +17,3 @@ class HouseAdmin(admin.ModelAdmin):
         "price_per_night",
         "pet_allowed"
     ]
-
-    search_fields = [
-        "name", "address"
-    ]
