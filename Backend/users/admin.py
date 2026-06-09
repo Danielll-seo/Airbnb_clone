@@ -9,6 +9,7 @@ class CustomUserAdmin(UserAdmin):
             {
                 "fields": ("username", "email", "name",
                            "is_host", "password"),
+                "classes": ("wide",),
             },
         ),
 
@@ -21,6 +22,7 @@ class CustomUserAdmin(UserAdmin):
                     "groups",
                     "user_permissions",
                 ),
+                "classes": ("collapse",),
             },
         ),
 
@@ -30,6 +32,11 @@ class CustomUserAdmin(UserAdmin):
                     "last_login",
                     "date_joined",
                 ),
+                "classes": (
+                    "collapse",
+                )
             },
         ),
     )
+
+    list_display = ("username", "email","name", "is_host")
