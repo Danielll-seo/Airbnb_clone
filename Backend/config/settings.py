@@ -38,6 +38,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 CUSTOM_APPS = [
     "users.apps.UsersConfig",
+    "rooms.apps.RoomsConfig",
 ]
 
 SYSTEM_APPS = [
