@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-$2=h@y_$8m(94+9*2bm2ehb!29@t*7!534$e^wsdx$5!v)%@b3"
+SECRET_KEY = "django-insecure-so_wggg5aw8!$eq1=lu-&)hxhjc^fp$gm(*e+!k$4(p_%(_9=d"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -122,11 +122,12 @@ USE_I18N = True
 
 USE_TZ = True
 
+# Custom user model
+# Auth
+AUTH_USER_MODEL = "users.User"
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = "static/"
-
-# Auth
-AUTH_USER_MODEL = "users.User"
