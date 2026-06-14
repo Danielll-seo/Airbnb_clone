@@ -17,7 +17,10 @@ class House(models.Model):
         help_text="Is pet allowed in this house?"
     )
 
-    owner = models.ForeignKey("users.User", on_delete = models.CASCADE)
+    owner = models.ForeignKey(
+        "users.User",
+        on_delete = models.CASCADE,
+    )
 
     def __str__(self):
         return self.name

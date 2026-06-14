@@ -1,5 +1,5 @@
 [project]
-name = "backend"
+name = "Django_test"
 version = "0.1.0"
 description = "airbnb_backend"
 authors = [
