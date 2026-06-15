@@ -37,6 +37,7 @@ CSRF_TRUSTED_ORIGINS = [
 # Application definition
 
 CUSTOM_APPS = [
+    "common.apps.CommonConfig",
     "users.apps.UsersConfig",
     "rooms.apps.RoomsConfig",
 ]
