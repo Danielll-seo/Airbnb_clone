@@ -1,6 +1,10 @@
 from django.db import models
 
-# 다른 앱들을 위한 공통 모델을 정의하는 파일입니다.
+"""
+this file is for the common model that will be used in other apps.
+so we can avoid code duplication and keep our code DRY
+(Don't Repeat Yourself) principle.
+"""
 class CommonModel(models.Model):
 
     """Common Model Definition"""
