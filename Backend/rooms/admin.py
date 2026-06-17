@@ -8,9 +8,12 @@ class RoomAdmin(admin.ModelAdmin):
         "price",
         "kind",
         "owner",
+        "category",
+        "created_at",
     )
 
     list_filter = (
+        "category",
         "country",
         "city",
         "price",
