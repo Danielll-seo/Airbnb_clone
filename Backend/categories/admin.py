@@ -9,3 +9,9 @@ class CategoryAdmin(admin.ModelAdmin):
         "kind",
         "created_at",
     )
+
+    list_filter = (
+        "kind",
+        "created_at",
+        "updated_at",
+    )
