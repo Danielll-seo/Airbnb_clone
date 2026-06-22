@@ -3,4 +3,10 @@ from .models import Wishlist
 
 @admin.register(Wishlist)
 class WishlistAdmin(admin.ModelAdmin):
-    pass
+    
+    list_display = (
+        "name",
+        "user",
+        "created_at",
+        "updated_at",
+    )
