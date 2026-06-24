@@ -42,3 +42,10 @@ class Host(models.Model):
 # 방을 가질 수 있기 때문에, ForeignKey를 사용하여 이 관계를 나타냅니다. 만약 Room 모델과 Host 모델이 One to one 관계라면,
 # OneToOneField를 사용하여 이 관계를 나타낼 수 있습니다. One to Many
 # 관계는 Many to one 관계의 반대이므로, ForeignKey를 사용하여 이 관계를 나타낼 수 있습니다.
+
+# 다음으로는 ORM에 대해 알아봅시다.
+# ORM이란 Object-Relational Mapping의 약자로 객체와 DB를 연결해주는 일종의 기술임.
+# 코드에서 클래스와 객체로 데이터를 다루면 ORM이 SQL로 전환해서 DB에 저장해주는 기술
+# 장접은 굳이 Admin interface를 안거치고 코드 몇줄로 바로 DB와 소통 가능함.
+# SQL을 직접 쓰지 않아도 됨.
+# DB종류를 바꿔도 코드 수정이 줄어든다는 장점이 있음.
