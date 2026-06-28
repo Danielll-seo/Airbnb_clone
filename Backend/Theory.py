@@ -49,3 +49,5 @@ class Host(models.Model):
 # 장접은 굳이 Admin interface를 안거치고 코드 몇줄로 바로 DB와 소통 가능함.
 # SQL을 직접 쓰지 않아도 됨.
 # DB종류를 바꿔도 코드 수정이 줄어든다는 장점이 있음.
+
+# ORM 신기한거 많네.
