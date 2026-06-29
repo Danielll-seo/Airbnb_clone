@@ -53,9 +53,8 @@ class Room(CommonModel):
     def __str__(self) -> str:
         return self.name
     
-    def total_amenities(self):
-        print(self)
-        return 'hello'
+    def total_amenities(Room):
+        return Room.amenities.count()
 
 
 class Amenity(CommonModel):
