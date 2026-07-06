@@ -1,5 +1,97 @@
-<h1>{{ room.name }}</h1>
-<h3>{{ room.country }} / {{ room.city }}</h3>
-<h4>{{ room.price }}</h4>
-<p>{{ room.description }}</p>
-<h5>{{ room.category.name }}</h5>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        background: linear-gradient(135deg, #fdf4eb, #f9f3ff);
+        color: #2f2a26;
+    }
+
+    .detail-wrap {
+        max-width: 900px;
+        margin: 42px auto;
+        padding: 24px;
+        background: rgba(255, 255, 255, 0.96);
+        border-radius: 24px;
+        box-shadow: 0 18px 45px rgba(48, 35, 25, 0.16);
+        border: 1px solid #efe2d7;
+        overflow: hidden;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 320px;
+        overflow: hidden;
+        border-radius: 18px;
+        margin-bottom: 20px;
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    .detail-wrap h1 {
+        margin: 0 0 8px;
+        font-size: 2rem;
+        color: #1e1a17;
+    }
+
+    .detail-wrap h3 {
+        margin: 0 0 10px;
+        color: #7c6f68;
+        font-weight: 500;
+    }
+
+    .pill {
+        display: inline-block;
+        background: linear-gradient(135deg, #ff6b6b, #ff4d6d);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+    }
+
+    .price {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: #d9485f;
+        margin: 10px 0 14px;
+    }
+
+    .description {
+        line-height: 1.8;
+        color: #5e544d;
+        font-size: 1rem;
+    }
+
+    .not-found {
+        text-align: center;
+        padding: 48px 24px;
+        color: #7c6f68;
+    }
+</style>
+
+{% if not not_found %}
+    <div class="detail-wrap">
+        <div class="hero-image">
+            {% if room.pk|divisibleby:2 %}
+                <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80" alt="{{ room.name }}">
+            {% else %}
+                <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1400&q=80" alt="{{ room.name }}">
+            {% endif %}
+        </div>
+        <span class="pill">{{ room.category.name }}</span>
+        <h1>{{ room.name }}</h1>
+        <h3>{{ room.country }} / {{ room.city }}</h3>
+        <p class="price">{{ room.price }}</p>
+        <p class="description">{{ room.description }}</p>
+    </div>
+{% else %}
+    <div class="detail-wrap not-found">
+        <h1>Room not found</h1>
+        <p>The room you are looking for does not exist.</p>
+    </div>
+{% endif %}
