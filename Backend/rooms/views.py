@@ -1,14 +1,28 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Room
+from categories.models import Category
+
 
 def see_all_rooms(request):
     rooms = Room.objects.all()
+    categories = Category.objects.all()
+
+    selected_category_pk = request.GET.get("category")
+    if selected_category_pk:
+        rooms = rooms.filter(category_id=selected_category_pk)
+
+    selected_category = None
+    if selected_category_pk:
+        selected_category = categories.filter(pk=selected_category_pk).first()
+
     return render(
         request,
         "all_rooms.html",
         {
             "rooms": rooms,
+            "categories": categories,
+            "selected_category": selected_category,
             "title": "Hello! this title comes from django!"
         },
     )

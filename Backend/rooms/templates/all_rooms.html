@@ -23,6 +23,35 @@
         margin-bottom: 24px;
     }
 
+    .filter-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 20px 0 28px;
+    }
+
+    .filter-pill {
+        display: inline-block;
+        padding: 8px 14px;
+        border-radius: 999px;
+        border: 1px solid #e3cdbb;
+        background: #fffaf6;
+        color: #6a584f;
+        text-decoration: none;
+        transition: all 0.2s ease;
+    }
+
+    .filter-pill:hover {
+        background: #ffefe6;
+        color: #d9485f;
+    }
+
+    .filter-pill.active {
+        background: linear-gradient(135deg, #ff6b6b, #ff4d6d);
+        color: white;
+        border-color: #ff4d6d;
+    }
+
     .room-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
@@ -123,6 +152,19 @@
 <div class="page">
     <h1>{{ title }}</h1>
     <p>Luxury stays, warm interiors, and unforgettable views in one place.</p>
+
+    <div class="filter-bar">
+        <a href="/rooms/" class="filter-pill {% if not selected_category %}active{% endif %}">All</a>
+        {% for category in categories %}
+            <a href="/rooms/?category={{ category.pk }}" class="filter-pill {% if selected_category and selected_category.pk == category.pk %}active{% endif %}">
+                {{ category.name }}
+            </a>
+        {% endfor %}
+    </div>
+
+    {% if selected_category %}
+        <p>Showing rooms in <strong>{{ selected_category.name }}</strong>.</p>
+    {% endif %}
 
     <div class="room-grid">
         {% for room in rooms %}
