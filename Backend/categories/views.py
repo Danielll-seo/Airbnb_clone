@@ -22,12 +22,20 @@ def categories(request):
 
 @api_view()
 def category(request, pk):
-    if request.method == "GET":
-        try:
-            category = Category.objects.get(pk=pk)
-            serializer = CategorySerializer(category)
-            return Response(serializer.data)
-        except Category.DoesNotExist:
-            raise NotFound
-    elif request.method == "PUT":
+    try:
         category = Category.objects.get(pk=pk)
+    except Category.DoesNotExist:
+        raise NotFound
+    
+    if request.method == "GET":
+        serializer = CategorySerializer(category)
+        return Response(serializer.data)
+    elif request.method == "PUT":
+        category = CategorySerializer(
+            category,
+            data=request.data
+        )
+        if serializer.is_valid():
+            pass
+        else:
+            return Response(serializer.errors)
