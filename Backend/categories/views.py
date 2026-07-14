@@ -6,6 +6,7 @@ from rest_framework.views import APIView
 from .models import Category
 from .serializers import CategorySerializer
 
+# this shit is way cooler than the function based views.
 class Categories(APIView):
 
     def get(self, request):
@@ -41,7 +42,7 @@ def categories(request):
             return Response(serializer.errors)
 """
 
-class Category(APIView):
+class CategoryDetail(APIView):
 
     def get_object(self, pk):
         try:
