@@ -1,6 +1,15 @@
 from rest_framework import serializers
 from .models import Category
 
+class CategorySerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Category
+        fields = (
+            "__all__"
+        )
+
+"""
 class CategorySerializer(serializers.Serializer):
     
     pk = serializers.IntegerField(read_only=True)
@@ -21,3 +30,4 @@ class CategorySerializer(serializers.Serializer):
         instance.kind = validated_data.get('kind', instance.kind)
         instance.save()
         return instance
+"""
