@@ -1,36 +1,77 @@
-from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Room
-from categories.models import Category
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from .models import Amenity
+from .serilalizers import AmenitySerializer
 
+class Amenities(APIView):
+    
+    def get(self, request):
+        all_amenities = Amenity.objects.all()
+        serializer = AmenitySerializer(all_amenities, many=True)
+        return Response(serializer.data)
 
-def see_all_rooms(request):
-    rooms = Room.objects.all()
+    def post(self, request):
+        # Logic to create a new amenity
+        serializer = AmenitySerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
 
-    return render(
-        request,
-        "all_rooms.html",
-        {
-            "rooms": rooms,
-            "title": "Hello! this title comes from django!"
-        },
-    )
+    def put(self, request, pk):
+        # Logic to update an existing amenity
+        try:
+            amenity = Amenity.objects.get(pk=pk)
+        except Amenity.DoesNotExist:
+            return Response({"error": "Amenity not found"}, status=404)
 
-def see_one_room(request, room_pk):
-    try:
-        room = Room.objects.get(pk=room_pk)
-        return render(
-            request,
-            "room_detail.html",
-            {
-                "room": room,
-            },
-        )
-    except Room.DoesNotExist:
-        return render(
-            request,
-            "room_detail.html",
-            {
-                "not_found": True,
-            },
-        )
+        serializer = AmenitySerializer(amenity, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=400)
+
+    def delete(self, request, pk):
+        # Logic to delete an existing amenity
+        try:
+            amenity = Amenity.objects.get(pk=pk)
+        except Amenity.DoesNotExist:
+            return Response({"error": "Amenity not found"}, status=404)
+
+        amenity.delete()
+        return Response({"message": "Amenity deleted successfully"}, status=200)
+
+class AmenityDetail(APIView):
+
+    def get(self, request, pk):
+        # Logic to retrieve a specific amenity by its primary key
+        try:
+            amenity = Amenity.objects.get(pk=pk)
+        except Amenity.DoesNotExist:
+            return Response({"error": "Amenity not found"}, status=404)
+
+        serializer = AmenitySerializer(amenity)
+        return Response(serializer.data)
+
+    def put(self, request, pk):
+        # Logic to update a specific amenity by its primary key
+        try:
+            amenity = Amenity.objects.get(pk=pk)
+        except Amenity.DoesNotExist:
+            return Response({"error": "Amenity not found"}, status=404)
+
+        serializer = AmenitySerializer(amenity, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=400)
+
+    def delete(self, request, pk):
+        # Logic to delete a specific amenity by its primary key
+        try:
+            amenity = Amenity.objects.get(pk=pk)
+        except Amenity.DoesNotExist:
+            return Response({"error": "Amenity not found"}, status=404)
+
+        amenity.delete()
+        return Response({"message": "Amenity deleted successfully"}, status=200)
