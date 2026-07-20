@@ -64,6 +64,7 @@ class Rooms(APIView):
         return Response(serializer.data)
     
     def post(self, request):
+        print(dir(request.user))
         serializer = RoomDetailSerializer(data=request.data)
         if serializer.is_valid():
             room = serializer.save()
