@@ -4,9 +4,9 @@
 "price": 90000,
 "rooms": 1,
 "toilets": 1,
-"category": {"name": "Using DRF", "kind": "luxury room"},
-"amenities": [{"name": "Using DRF2", "description": "bruh"}],
 "description": "DRF is great",
 "address": "123, Gangnam",
 "pet_friendly": true,
 "kind": "private_room"}
+
+owner=request.user
