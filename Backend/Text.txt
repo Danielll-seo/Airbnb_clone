@@ -7,6 +7,5 @@
 "description": "DRF is great",
 "address": "123, Gangnam",
 "pet_friendly": true,
+"category": 2,
 "kind": "private_room"}
-
-owner=request.user
