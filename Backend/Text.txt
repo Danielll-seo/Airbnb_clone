@@ -8,4 +8,5 @@
 "address": "123, Gangnam",
 "pet_friendly": true,
 "category": 2,
+"amenities": [1, 2, 4],
 "kind": "private_room"}
